@@ -1,4 +1,4 @@
-package com.summer.framework.serverlet;
+package com.summer.framework.servelet;
 
 import com.summer.framework.domain.SimpleRequest;
 import com.summer.framework.domain.SimpleResponse;
@@ -10,7 +10,7 @@ import java.io.IOException;
  * @Date: 2020/11/17 15:52
  * @Version: 1.0
  */
-public abstract class Serverlet {
+public abstract class Servelet {
     public static String REQ_GET= "GET";
     public static String REQ_POST = "POST";
 
@@ -19,6 +19,8 @@ public abstract class Serverlet {
             this.doGet(request,response);
         }else if (REQ_POST.equals(request.getMethod())){
             this.doPost(request,response);
+        }else {
+            doUnsupport(request,response);
         }
     }
 

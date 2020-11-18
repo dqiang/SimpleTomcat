@@ -2,7 +2,7 @@ package com.summer.framework.controller;
 
 import com.summer.framework.domain.SimpleRequest;
 import com.summer.framework.domain.SimpleResponse;
-import com.summer.framework.serverlet.Serverlet;
+import com.summer.framework.servelet.Servelet;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import java.io.IOException;
  * @Date: 2020/11/17 16:05
  * @Version: 1.0
  */
-public class LoginController extends Serverlet {
+public class LoginController extends Servelet {
     @Override
     public void doGet(SimpleRequest request, SimpleResponse response) {
         try {

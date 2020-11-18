@@ -4,9 +4,8 @@ import com.summer.framework.config.ServerletHandler;
 import com.summer.framework.domain.SimpleRequest;
 import com.summer.framework.domain.SimpleResponse;
 import com.summer.framework.filter.Filter;
-import com.summer.framework.filter.FilterChain;
 import com.summer.framework.filter.SimpleFilterChain;
-import com.summer.framework.serverlet.Serverlet;
+import com.summer.framework.servelet.Servelet;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -102,7 +101,7 @@ public class TomcatServer extends Thread {
     }
 
     private void dispatch(SimpleRequest request, SimpleResponse response) throws IOException {
-        Serverlet serverlet = ServerletHandler.getInstance(request.getUrl());
+        Servelet serverlet = ServerletHandler.getInstance(request.getUrl());
         if (serverlet != null){
             new SimpleFilterChain(serverlet,filters).doFilter(request,response);
         }else {

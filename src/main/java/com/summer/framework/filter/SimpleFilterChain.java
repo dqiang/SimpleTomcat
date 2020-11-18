@@ -2,7 +2,7 @@ package com.summer.framework.filter;
 
 import com.summer.framework.domain.SimpleRequest;
 import com.summer.framework.domain.SimpleResponse;
-import com.summer.framework.serverlet.Serverlet;
+import com.summer.framework.servelet.Servelet;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,8 +19,8 @@ public class SimpleFilterChain implements FilterChain {
 
     private List<Filter> filters = new ArrayList<Filter>();
 
-    private Serverlet serverlet;
-    public SimpleFilterChain(Serverlet serverlet,List<Filter> inFilters){
+    private Servelet serverlet;
+    public SimpleFilterChain(Servelet serverlet, List<Filter> inFilters){
         this.serverlet = serverlet;
         this.filters.addAll(inFilters);
         this.n = inFilters.size();

@@ -2,7 +2,7 @@ package com.summer.framework.config;
 
 import com.summer.framework.controller.IndexController;
 import com.summer.framework.controller.LoginController;
-import com.summer.framework.serverlet.Serverlet;
+import com.summer.framework.servelet.Servelet;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
@@ -41,13 +41,13 @@ public class ServerletHandler implements MethodInterceptor {
     }
 
 
-    public static Serverlet getInstance(String url){
+    public static Servelet getInstance(String url){
         String clsName = serverletMap.get(url);
         if (StringUtils.isNotBlank(clsName)){
             try {
                 Class cls = Class.forName(clsName);
                 ServerletHandler handler = new ServerletHandler(cls.newInstance());
-                Serverlet serverlet = handler.getProxyInstance();
+                Servelet serverlet = handler.getProxyInstance();
                 return serverlet;
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
